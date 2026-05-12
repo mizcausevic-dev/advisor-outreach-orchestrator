@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advisor Outreach API Summary</title>
+  <style>
+    :root {
+      --bg: #09111d;
+      --panel: #101d2f;
+      --panel-2: #17263c;
+      --line: #29486f;
+      --ink: #f3ecde;
+      --muted: #b5c2d7;
+      --blue: #6db2ff;
+      --pink: #f0bfd7;
+      --green: #8fe0bf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(54, 103, 164, 0.18), transparent 30%),
+        linear-gradient(180deg, #08111c 0%, #0b1522 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .frame {
+      width: 1440px;
+      min-height: 920px;
+      margin: 0 auto;
+      padding: 48px;
+    }
+    .shell {
+      background: rgba(13, 24, 39, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 34px 36px 36px;
+    }
+    .eyebrow {
+      margin: 0 0 22px;
+      font: 700 13px/1.2 "Segoe UI", sans-serif;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    h1 {
+      margin: 0;
+      font-size: 72px;
+      line-height: 1.02;
+      max-width: 1160px;
+      letter-spacing: -0.05em;
+    }
+    p.lead {
+      margin: 24px 0 0;
+      max-width: 1060px;
+      color: var(--muted);
+      font: 400 19px/1.55 "Segoe UI", sans-serif;
+    }
+    .pills {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 22px 0 26px;
+    }
+    .pill {
+      background: #1d2d45;
+      border: 1px solid #335a8d;
+      color: #f5f7fb;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font: 700 15px/1 "Segoe UI", sans-serif;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 8px 0 34px;
+    }
+    .card {
+      background: var(--panel-2);
+      border: 1px solid #335885;
+      border-radius: 24px;
+      padding: 22px 22px 18px;
+      min-height: 170px;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      color: #a8cbff;
+      font: 700 12px/1.2 "Segoe UI", sans-serif;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .metric {
+      font-size: 58px;
+      line-height: 1;
+      margin: 0 0 10px;
+    }
+    .card p, .card li, .table, .lane {
+      color: var(--muted);
+      font: 400 18px/1.45 "Segoe UI", sans-serif;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 18px;
+    }
+    .table {
+      display: grid;
+      gap: 12px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.7fr 0.8fr 0.7fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 18px;
+      background: #0c1728;
+      border: 1px solid #223c5d;
+      border-radius: 18px;
+    }
+    .row strong {
+      color: var(--ink);
+      display: block;
+      font: 700 24px/1.1 Georgia, serif;
+    }
+    .small {
+      font-size: 15px;
+      color: #87a2c7;
+    }
+    .lane {
+      padding: 16px 18px;
+      background: #0c1728;
+      border: 1px solid #223c5d;
+      border-radius: 18px;
+      margin-bottom: 12px;
+    }
+    .lane strong {
+      display: block;
+      color: var(--ink);
+      font: 700 24px/1.15 Georgia, serif;
+      margin-bottom: 6px;
+    }
+    ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+    li + li {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="shell">
+      <p class="eyebrow">API Summary</p>
+      
+      <h1>The API exposes intervention logic in a shape that advising ops teams can actually use.</h1>
+      <p class="lead">
+        Summary metrics, queue state, and next-step recommendations are all surfaced together so the
+        outreach engine can feed dashboards, CRMs, and advisor work queues.
+      </p>
+      <div class="card">
+        <h2>sample payload</h2>
+        <pre style="margin:0;color:#d7e8ff;font:16px/1.5 Consolas, monospace; white-space:pre-wrap;">{&#x27;dashboard&#x27;: {&#x27;institution&#x27;: &#x27;Northstar Online University&#x27;, &#x27;term&#x27;: &#x27;Spring 2026&#x27;, &#x27;studentCount&#x27;: 6, &#x27;escalationCount&#x27;: 4, &#x27;priorityCount&#x27;: 1, &#x27;financialHoldCount&#x27;: 2, &#x27;averageUrgencyScore&#x27;: 80.5, &#x27;topLane&#x27;: &#x27;Financial Support&#x27;, &#x27;leadRecommendation&#x27;: &#x27;Separate financial-hold cases from general advising drift, then reserve the care team lane for students with both silence and repeated missed commitments.&#x27;}, &#x27;outreachQueue&#x27;: [{&#x27;studentId&#x27;: &#x27;stu-1880&#x27;, &#x27;name&#x27;: &#x27;Elijah Brooks&#x27;, &#x27;urgencyScore&#x27;: 100, &#x27;ownerLane&#x27;: &#x27;Financial Support&#x27;, &#x27;leadChannel&#x27;: &#x27;phone&#x27;, &#x27;nextAction&#x27;: &#x27;Launch a phone outreach now, then route the case into Financial Support with a same-week checkpoint and faculty context attached.&#x27;}, {&#x27;studentId&#x27;: &#x27;stu-2112&#x27;, &#x27;name&#x27;: &#x27;Noah Patel&#x27;, &#x27;urgencyScore&#x27;: 100, &#x27;ownerLane&#x27;: &#x27;Financial Support&#x27;, &#x27;leadChannel&#x27;: &#x27;phone&#x27;, &#x27;nextAction&#x27;: &#x27;Launch a phone outreach now, then route the case into Financial Support with a same-week checkpoint and faculty context attached.&#x27;}, {&#x27;studentId&#x27;: &#x27;stu-1631&#x27;, &#x27;name&#x27;: &#x27;Jordan Alvarez&#x27;, &#x27;urgencyScore&#x27;: 99, &#x27;ownerLane&#x27;: &#x27;Faculty + Advising&#x27;, &#x27;leadChannel&#x27;: &#x27;phone&#x27;, &#x27;nextAction&#x27;: &#x27;Launch a phone outreach now, then route the case into Faculty + Advising with a same-week checkpoint and faculty context attached.&#x27;}]}</pre>
+      </div>
+    
+    </div>
+  </div>
+</body>
+</html>
