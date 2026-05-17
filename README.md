@@ -26,7 +26,7 @@ Advisor Outreach Orchestrator is an EdTech workflow engine for sequencing adviso
 ## Local run
 
 ```powershell
-Set-Location "C:\Users\chaus\dev\repos\advisor-outreach-orchestrator"
+cd advisor-outreach-orchestrator
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m app.main
