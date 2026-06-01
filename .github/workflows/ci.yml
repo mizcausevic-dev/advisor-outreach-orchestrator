@@ -24,3 +24,9 @@ jobs:
         run: python scripts/run_demo.py
       - name: Run smoke checks
         run: python scripts/smoke_check.py
+
+# Least-privilege: read-only test/CI runs. GITHUB_TOKEN gets no write to
+# anything. The publish/release flows (where they exist) carry their own
+# scoped permissions per-workflow.
+permissions:
+  contents: read
